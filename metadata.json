@@ -1,0 +1,6 @@
+{
+  "name": "eShelf",
+  "description": "Minimal static website for browsing and downloading DRM-free EPUBs on Kobo Nia and e-ink devices.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

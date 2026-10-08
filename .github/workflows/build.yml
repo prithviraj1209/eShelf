@@ -1,0 +1,67 @@
+name: Build and Deploy eShelf
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "books/**"
+      - "build/**"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # fetch-depth: 0 ensures complete git history is available
+          # so build.py can accurately determine the initial commit date for each book
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run eShelf static site generator
+        run: python build/build.py
+
+      - name: Commit generated HTML files (if updated)
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add index*.html title*.html author*.html 404.html .nojekyll
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto-rebuild eShelf catalog [skip ci]"
+            git push
+          else
+            echo "No HTML changes to commit."
+          fi
+        continue-on-error: true
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

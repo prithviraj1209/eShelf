@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="description" content="eShelf - Minimal DRM-free eBook library for e-ink devices"><title>eShelf - Title A→Z</title><style>* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: #ffffff; color: #000000;
+  font-family: Georgia, "Nimbus Roman No9 L", "Times New Roman", serif;
+  font-size: 18px; line-height: 1.4;
+  -webkit-text-size-adjust: 100%;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 12px 14px 40px 14px; }
+header { border-bottom: 2px solid #000000; padding-bottom: 8px; margin-bottom: 12px; }
+h1 { font-size: 28px; margin: 0 0 4px 0; letter-spacing: 0.5px; }
+h2.author-heading {
+  font-size: 22px; margin: 24px 0 8px 0;
+  border-bottom: 1px solid #000000; padding-bottom: 4px;
+}
+.nav-bar { margin: 12px 0; padding: 4px 0; line-height: 2.2; }
+.nav-link {
+  display: inline-block; min-height: 48px; line-height: 48px;
+  padding: 0 8px; color: #000000; font-size: 18px; text-decoration: underline;
+}
+.nav-current {
+  display: inline-block; min-height: 48px; line-height: 48px;
+  padding: 0 8px; font-weight: bold; text-decoration: none;
+}
+.az-nav {
+  margin: 12px 0; padding: 8px 0;
+  border-top: 1px solid #000000; border-bottom: 1px solid #000000;
+  line-height: 2.4;
+}
+.az-link {
+  display: inline-block; min-width: 44px; min-height: 48px;
+  line-height: 48px; text-align: center; font-weight: bold;
+  color: #000000; text-decoration: underline;
+}
+.search-container { margin: 14px 0; }
+.search-label { display: block; font-weight: bold; margin-bottom: 6px; font-size: 18px; }
+.search-input {
+  display: block; width: 100%; height: 48px; min-height: 48px;
+  padding: 8px 12px; font-size: 18px; font-family: inherit;
+  color: #000000; background: #ffffff; border: 2px solid #000000;
+  border-radius: 0; -webkit-appearance: none;
+}
+.book-count { margin: 12px 0 16px 0; font-size: 18px; }
+.book-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid #000000; }
+.book-item { border-bottom: 2px solid #000000; padding: 14px 0; }
+.book-title { font-size: 20px; font-weight: bold; margin-bottom: 4px; }
+.book-author { font-size: 18px; margin-bottom: 4px; }
+.book-meta { font-size: 16px; margin-bottom: 10px; }
+.download-btn {
+  display: inline-block; min-height: 48px; line-height: 44px;
+  padding: 0 24px; border: 2px solid #000000; background: #ffffff;
+  color: #000000; text-decoration: none; font-weight: bold;
+  font-size: 18px; text-align: center; border-radius: 0; -webkit-appearance: none;
+}
+.download-btn:active { background: #000000; color: #ffffff; }
+.pagination {
+  margin: 24px 0; padding: 10px 0;
+  border-top: 2px solid #000000; text-align: center;
+}
+.page-btn {
+  display: inline-block; min-height: 48px; line-height: 44px;
+  padding: 0 18px; margin: 0 6px; border: 2px solid #000000;
+  color: #000000; text-decoration: none; font-weight: bold;
+}
+footer { margin-top: 36px; padding-top: 12px; border-top: 1px solid #000000; font-size: 15px; }
+.back-top {
+  display: inline-block; min-height: 48px; line-height: 48px;
+  font-weight: bold; color: #000000; text-decoration: underline;
+}</style></head><body><div class="container"><header id="top"><h1>eShelf</h1></header><div id="search-wrap" class="search-container" style="display:none;"><label for="search-input" class="search-label">Search library:</label><input type="search" id="search-input" class="search-input" placeholder="Filter by title or author…" autocomplete="off"></div><nav class="nav-bar" aria-label="Sort options"><a href="index.html" class="nav-link">Latest added</a> | <strong class="nav-current">Title A→Z</strong> | <a href="author.html" class="nav-link">Author A→Z</a></nav><p id="book-count" class="book-count"><strong>3 books</strong></p><nav class="az-nav" aria-label="Title A to Z index">Jump: <a href="#letter-A" class="az-link">A</a><a href="#letter-F" class="az-link">F</a><a href="#letter-P" class="az-link">P</a></nav><ul class="book-list"><li id="letter-A" class="book-item" data-search="the adventures of sherlock holmes sir arthur conan doyle"><div class="book-title">The Adventures of Sherlock Holmes</div><div class="book-author">Sir Arthur Conan Doyle</div><div class="book-meta">EPUB · 1.6 KB</div><div class="book-action"><a href="books/Arthur%20Conan%20Doyle/The%20Adventures%20of%20Sherlock%20Holmes.epub" class="download-btn" download="The Adventures of Sherlock Holmes.epub">Download</a></div></li><li id="letter-F" class="book-item" data-search="frankenstein mary shelley"><div class="book-title">Frankenstein</div><div class="book-author">Mary Shelley</div><div class="book-meta">EPUB · 1.6 KB</div><div class="book-action"><a href="books/Mary%20Shelley/Frankenstein.epub" class="download-btn" download="Frankenstein.epub">Download</a></div></li><li id="letter-P" class="book-item" data-search="pride and prejudice jane austen"><div class="book-title">Pride and Prejudice</div><div class="book-author">Jane Austen</div><div class="book-meta">EPUB · 1.6 KB</div><div class="book-action"><a href="books/Jane%20Austen/Pride%20and%20Prejudice.epub" class="download-btn" download="Pride and Prejudice.epub">Download</a></div></li></ul><footer><div>Built: 2026-10-08 17:09 UTC · <a href="#top" class="back-top">Back to top</a></div></footer></div><script>(function() {
+  var wrap = document.getElementById("search-wrap");
+  var input = document.getElementById("search-input");
+  var count = document.getElementById("book-count");
+  if (!wrap || !input) return;
+  wrap.style.display = "block";
+  var items = document.getElementsByClassName("book-item");
+  var groups = document.getElementsByClassName("author-group");
+  var total = items.length;
+  function filter() {
+    var q = input.value.toLowerCase().replace(/^\s+|\s+$/g, "");
+    var visible = 0;
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var str = item.getAttribute("data-search") || "";
+      if (!q || str.indexOf(q) !== -1) {
+        item.style.display = "";
+        visible++;
+      } else {
+        item.style.display = "none";
+      }
+    }
+    for (var g = 0; g < groups.length; g++) {
+      var grp = groups[g];
+      var grpItems = grp.getElementsByClassName("book-item");
+      var any = false;
+      for (var k = 0; k < grpItems.length; k++) {
+        if (grpItems[k].style.display !== "none") {
+          any = true;
+          break;
+        }
+      }
+      grp.style.display = any ? "" : "none";
+    }
+    if (count) {
+      if (q) {
+        count.innerHTML = "<strong>Showing " + visible + " of " + total + " books</strong>";
+      } else {
+        count.innerHTML = "<strong>" + total + " books</strong>";
+      }
+    }
+  }
+  input.addEventListener("input", filter);
+  input.addEventListener("keyup", filter);
+})();</script></body></html>
